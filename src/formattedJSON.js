@@ -12,7 +12,7 @@
 
       // attempt to parse the body as JSON
       try {
-        var obj = JSON.parse( document.body.textContent
+        var obj = JSON.parse( document.body.textContent.replace(/^(\w+)?\(/,'').replace(/\)$/, '')
           .split( "\\" ).join( "\\\\" ) // double-up on escape sequences
           .split( '\\\"' ).join( "\\\\\"" ) // at this point quotes have been unescaped.  re-escape them.
         );
